@@ -24,7 +24,9 @@ document.getElementById('submitTask').addEventListener('click', function(e){
         popSubmit['taskDesc'].value = '';
         popSubmit.classList.add('hidden');
     }
-    
+    else{
+        alert('Please Enter the task name!');
+    }
 })
 
 
