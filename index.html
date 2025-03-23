@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDder List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <button class="addButton" type="button" onclick="openPop('popSubmit', 'popUpdate', 'popDelete')">Add Task</button>
+    <hr>
+    
+    
+    <form class="popUp hidden" id="popSubmit">
+        <div class="stylingPop">
+            <div style="text-align: right;">
+                <button type="button" class="cancelButton" onclick="closePop('popSubmit')">X</button>
+            </div>
+            <input required name="taskName" type="text" id="submitName" placeholder="Task Title">
+            <textarea name="taskDesc" placeholder="Description"></textarea>
+            <div style="text-align: right;">
+                <button type="button" class="cancelButton" onclick="closePop('popSubmit')">Cancel</button>
+                <button type="submit" id="submitTask" onsubmit="submitTask()" class="addButton">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+    <form class="popUp hidden" id="popUpdate">
+        <div class="stylingPop">
+            <div style="text-align: right;">
+                <button type="button" class="cancelButton" onclick="closePop('popUpdate')">X</button>
+            </div>
+            <input required type="text" id="updateName" placeholder="Task Title">
+            <textarea id="updateDesc" placeholder="Description"></textarea>
+            <div style="text-align: right;">
+                <button type="button" class="cancelButton" onclick="closePop('popUpdate')">Cancel</button>
+                <button type="button" id="confirmUpdate" class="addButton">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div id="popDelete" class="popUp hidden">
+        <div class="stylingPop">
+            <h1 style="margin-bottom: 0.5rem;">Do you really want to delete the Task?</h1>
+            <span>Task Details:</span>
+            <span>Lorem Ipsum dolor sit amet gibberish, gibberish</span>
+            <div style="text-align: center;">
+                <button class="cancelButton">Yes</button>
+                <button class="addButton" onclick="closePop('popDelete')">No</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
