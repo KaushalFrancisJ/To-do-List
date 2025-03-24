@@ -27,6 +27,7 @@ document.getElementById('submitTask').addEventListener('click', function(e){
     else{
         alert('Please Enter the task name!');
     }
+    
 })
 
 
@@ -80,15 +81,21 @@ function addTaskDom(taskObject){
 
         const updateButton = document.getElementById('confirmUpdate');
         updateButton.onclick = () => {
-            popUpdate.classList.add('hidden');
             
-            taskObject.taskName = updateName.value;
-            taskObject.taskDesc = updateDesc.value;
+            
+            if(updateName.value !== ''){    
+                popUpdate.classList.add('hidden');
+                taskObject.taskName = updateName.value;
+                taskObject.taskDesc = updateDesc.value;
 
-            taskNamePlace.textContent = taskObject.taskName;
-            taskDescPlace.textContent = taskObject.taskDesc;
+                taskNamePlace.textContent = taskObject.taskName;
+                taskDescPlace.textContent = taskObject.taskDesc;
 
-            localStorage.setItem('tasks', JSON.stringify(arr));
+                localStorage.setItem('tasks', JSON.stringify(arr));
+            }
+            else{
+                alert('Please Enter the task name!');
+            }
         }
     }
 
@@ -127,7 +134,7 @@ function showDeletePopup(taskObject, onConfirm) {
     const taskName = document.createElement('h2');
     taskName.style.margin = '0px';
     const taskDesc = document.createElement('span');
-    taskName.textContent = `${taskObject.taskName}:`;
+    taskName.textContent = `${taskObject.taskName}`;
     taskDesc.textContent = `${taskObject.taskDesc}`;
 
     const buttonContainer = document.createElement('div');
